@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Propaganda
+    public class Propaganda
     {
         public long Id { get; set; }
         public CenaParaPropaganda Cena { get; set; }
-        public List<Marca> OpcoesDeMarcasParaProdutoNaCena { get; set; }
+        public virtual ICollection<Marca> OpcoesDeMarcasParaProdutoNaCena { get; set; }
     }
 }

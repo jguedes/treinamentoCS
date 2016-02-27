@@ -6,6 +6,6 @@ namespace Dominio
     {
         public long Id { get; set; }
         public string IdentificadorDoTelespectador { get; set; }
-        public List<PropagandaMarcada> PropagandasMarcadas { get; set; }
+        public virtual ICollection<PropagandaMarcada> PropagandasMarcadas { get; set; }
     }
 }

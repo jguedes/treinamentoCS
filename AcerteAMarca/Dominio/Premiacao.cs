@@ -6,6 +6,6 @@ namespace Dominio
     {
         public long Id { get; set; }
         public string ObjetoPremio { get; set; }
-        public List<string> Regras { get; set; }
+        public virtual ICollection<Regra> Regras { get; set; }
     }
 }

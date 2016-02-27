@@ -49,6 +49,7 @@
     <Compile Include="Propaganda.cs" />
     <Compile Include="PropagandaMarcada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regra.cs" />
     <Compile Include="TelespactadorParticipante.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

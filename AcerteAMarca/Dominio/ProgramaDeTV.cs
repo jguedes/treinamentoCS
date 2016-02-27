@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class ProgramaDeTV
+    public class ProgramaDeTV
     {
         public long Id { get; set; }
         public string Nome { get; set; }
-        public List<Propaganda> Propagandas { get; set; }
+        public ICollection<Propaganda> Propagandas { get; set; }
     }
 }
