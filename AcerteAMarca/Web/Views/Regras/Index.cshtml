@@ -1,23 +1,24 @@
-﻿@model IEnumerable<Dominio.Regra>
+﻿@model IEnumerable<Dominio.Premiacao>
 
 @{
     ViewBag.Title = "Index";
+    string tit = Model.First<Dominio.Premiacao>().ObjetoPremio;
 }
 
-<h2>Regra</h2>
+<h2>Regras para a premiação @tit</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { premiacaoId = Model.First<Dominio.Premiacao>().Id })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+            @Html.DisplayNameFor(model => model.Regras.First<Dominio.Regra>().Descricao)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.First<Dominio.Premiacao>().Regras) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)

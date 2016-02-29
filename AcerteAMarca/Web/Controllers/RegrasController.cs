@@ -16,9 +16,14 @@ namespace Web.Controllers
         private AcerteAMarcaContext db = new AcerteAMarcaContext();
 
         // GET: Regras
-        public ActionResult Index()
+        public ActionResult Index(long? premiacaoId)
         {
-            return View(db.Regras.ToList());
+
+            ICollection<Premiacao> i = new List<Premiacao>();
+
+            i.Add(db.Premiacao.Find(premiacaoId));
+
+            return View(i);
         }
 
         // GET: Regras/Details/5
@@ -37,7 +42,7 @@ namespace Web.Controllers
         }
 
         // GET: Regras/Create
-        public ActionResult Create()
+        public ActionResult Create(long? premiacaoId)
         {
             return View();
         }
