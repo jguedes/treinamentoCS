@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Propaganda é alusiva a uma única cena de programa de TV
+    /// </summary>
     public class Propaganda
     {
         public long Id { get; set; }

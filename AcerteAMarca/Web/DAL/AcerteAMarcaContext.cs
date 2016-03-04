@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using Dominio;
 using System.Data.Entity.ModelConfiguration.Conventions;
-namespace Web.Models
+namespace Web.DAL
 {
     public class AcerteAMarcaContext : DbContext
     {
