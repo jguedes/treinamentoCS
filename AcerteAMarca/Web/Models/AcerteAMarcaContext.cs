@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using Dominio;
+using System.Data.Entity.ModelConfiguration.Conventions;
 namespace Web.Models
 {
     public class AcerteAMarcaContext : DbContext
@@ -17,6 +18,7 @@ namespace Web.Models
         public DbSet<ProgramaDeTV> ProgramaDeTV { get; set; }
         public DbSet<Premiacao> Premiacao { get; set; }
         public DbSet<AcerteAMarca> AcerteAMarca { get; set; }
+        public System.Data.Entity.DbSet<Dominio.Regra> Regras { get; set; }
 
         public AcerteAMarcaContext() : base("AcerteamarcaDB")
         {
@@ -25,7 +27,7 @@ namespace Web.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBiulder)
         {
-            base.OnModelCreating(modelBiulder);
+            modelBiulder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBiulder.Entity<Marca>()
                 .HasMany<Produto>(m => m.Produtos);
@@ -51,6 +53,5 @@ namespace Web.Models
                 .HasMany<Premiacao>(a => a.Premiacoes);
         }
 
-        public System.Data.Entity.DbSet<Dominio.Regra> Regras { get; set; }
     }
 }

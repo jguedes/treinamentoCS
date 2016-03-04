@@ -17,7 +17,27 @@
         <dd>
             @Html.DisplayFor(model => model.ObjetoPremio)
         </dd>
-
+        <dt>
+            @Html.DisplayNameFor(model => model.Regras)
+            @Html.ActionLink("Create", "Create", "Regras", new { premiacaoId = Model.Id }, null)
+        </dt>
+        <dd>
+            <table>
+                @foreach (var item in Model.Regras)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", "Regras",new { id = item.Id },null) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <p>

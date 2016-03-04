@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
@@ -8,5 +9,8 @@ namespace Dominio
 
         [Display(Name ="Descrições")]
         public string Descricao { get; set; }
+        
+        public long Premiacao_Id { get; set; }
+
     }
 }

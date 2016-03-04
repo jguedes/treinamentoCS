@@ -44,7 +44,11 @@ namespace Web.Controllers
         // GET: Regras/Create
         public ActionResult Create(long? premiacaoId)
         {
-            return View();
+            Regra regra = new Regra();
+
+            regra.Premiacao_Id = premiacaoId;
+
+            return View(regra);
         }
 
         // POST: Regras/Create
@@ -54,6 +58,7 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Descricao")] Regra regra)
         {
+            //Console.WriteLine("ok");
             if (ModelState.IsValid)
             {
                 db.Regras.Add(regra);
