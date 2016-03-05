@@ -12,7 +12,7 @@ namespace Dominio
     {
 
         #region Properties
-        public long Id { get; set; }
+        public long ID { get; set; }
         public virtual ICollection<ProgramaDeTV> ProgramasDeTV
         {
             get {
@@ -30,13 +30,13 @@ namespace Dominio
                 ProgramasDeTV = value;
             }
         }
-        public virtual ICollection<TelespactadorParticipante> TelespectadoresParticipantes
+        public virtual ICollection<TelespectadorParticipante> TelespectadoresParticipantes
         {
             get
             {
                 if (TelespectadoresParticipantes.Equals(null))
                 {
-                    return new List<TelespactadorParticipante>();
+                    return new List<TelespectadorParticipante>();
                 }
                 else
                 {

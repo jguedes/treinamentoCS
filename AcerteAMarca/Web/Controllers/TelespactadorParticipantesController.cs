@@ -28,7 +28,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TelespactadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
+            TelespectadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
             if (telespactadorParticipante == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdentificadorDoTelespectador")] TelespactadorParticipante telespactadorParticipante)
+        public ActionResult Create([Bind(Include = "Id,IdentificadorDoTelespectador")] TelespectadorParticipante telespactadorParticipante)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TelespactadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
+            TelespectadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
             if (telespactadorParticipante == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdentificadorDoTelespectador")] TelespactadorParticipante telespactadorParticipante)
+        public ActionResult Edit([Bind(Include = "Id,IdentificadorDoTelespectador")] TelespectadorParticipante telespactadorParticipante)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TelespactadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
+            TelespectadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
             if (telespactadorParticipante == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            TelespactadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
+            TelespectadorParticipante telespactadorParticipante = db.TelespactadorParticipante.Find(id);
             db.TelespactadorParticipante.Remove(telespactadorParticipante);
             db.SaveChanges();
             return RedirectToAction("Index");

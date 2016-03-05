@@ -28,7 +28,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
+            ObjetoDePropaganda produto = db.Produto.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome")] Produto produto)
+        public ActionResult Create([Bind(Include = "Id,Nome")] ObjetoDePropaganda produto)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
+            ObjetoDePropaganda produto = db.Produto.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome")] Produto produto)
+        public ActionResult Edit([Bind(Include = "Id,Nome")] ObjetoDePropaganda produto)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produto.Find(id);
+            ObjetoDePropaganda produto = db.Produto.Find(id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Produto produto = db.Produto.Find(id);
+            ObjetoDePropaganda produto = db.Produto.Find(id);
             db.Produto.Remove(produto);
             db.SaveChanges();
             return RedirectToAction("Index");

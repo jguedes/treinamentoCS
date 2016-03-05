@@ -9,10 +9,10 @@ namespace Web.DAL
 {
     public class AcerteAMarcaContext : DbContext
     {
-        public DbSet<Produto> Produto { get; set; }
+        public DbSet<ObjetoDePropaganda> Produto { get; set; }
         public DbSet<Marca> Marca { get; set; }
         public DbSet<CenaParaPropaganda> Cena { get; set; }
-        public DbSet<TelespactadorParticipante> TelespactadorParticipante { get; set; }
+        public DbSet<TelespectadorParticipante> TelespactadorParticipante { get; set; }
         public DbSet<PropagandaMarcada> PropagandaMarcada { get; set; }
         public DbSet<Propaganda> Propaganda { get; set; }
         public DbSet<ProgramaDeTV> ProgramaDeTV { get; set; }
@@ -30,25 +30,25 @@ namespace Web.DAL
             modelBiulder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBiulder.Entity<Marca>()
-                .HasMany<Produto>(m => m.Produtos);
-            modelBiulder.Entity<Produto>()
+                .HasMany<ObjetoDePropaganda>(m => m.ObjetosDePropaganda);
+            modelBiulder.Entity<ObjetoDePropaganda>()
                 .HasMany<Marca>(p => p.Marcas);
             modelBiulder.Entity<CenaParaPropaganda>()
-                .HasRequired<Produto>(r => r.Produto);
+                .HasRequired<ObjetoDePropaganda>(r => r.Produto);
             modelBiulder.Entity<Propaganda>()
                 .HasMany<Marca>(p => p.OpcoesDeMarcasParaProdutoNaCena);
             modelBiulder.Entity<ProgramaDeTV>()
-                .HasMany<Propaganda>(p => p.Propagandas);
+                .HasMany<Propaganda>(p => p.CenasComPropaganda);
             modelBiulder.Entity<Premiacao>()
                 .HasMany<Regra>(p => p.Regras);
             modelBiulder.Entity<PropagandaMarcada>()
                 .HasRequired<Propaganda>(r => r.PropagandaVisualizada);
-            modelBiulder.Entity<TelespactadorParticipante>()
+            modelBiulder.Entity<TelespectadorParticipante>()
                 .HasMany<PropagandaMarcada>(t => t.PropagandasMarcadas);
             modelBiulder.Entity<AcerteAMarca>()
                 .HasMany<ProgramaDeTV>(a => a.ProgramasDeTV);
             modelBiulder.Entity<AcerteAMarca>()
-                .HasMany<TelespactadorParticipante>(a => a.TelespectadoresParticipantes);
+                .HasMany<TelespectadorParticipante>(a => a.TelespectadoresParticipantes);
             modelBiulder.Entity<AcerteAMarca>()
                 .HasMany<Premiacao>(a => a.Premiacoes);
         }

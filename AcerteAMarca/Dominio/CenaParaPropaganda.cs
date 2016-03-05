@@ -10,7 +10,7 @@ namespace Dominio
     {
         public long Id { get; set; }
         public string Identificador { get; set; }
-        public Produto Produto { get; set; }
+        public ObjetoDePropaganda Produto { get; set; }
         public DateTime HoraLimiteDeInteracaoComTelespectador { get; set; }
     }
 }

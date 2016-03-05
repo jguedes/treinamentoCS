@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dominio
 {
     /// <summary>
-    /// ProgramaDeTv possui um conjunto de propagandas que são realizadas em suas cenas.
+    /// ProgramaDeTv possui um conjunto de cenas com propagandas para a promoção.
     /// </summary>
     public class ProgramaDeTV
     {
@@ -19,22 +19,22 @@ namespace Dominio
 
         #region Navigation properties
         public virtual AcerteAMarca AcerteAMarca { get; set; }
-        public virtual ICollection<Propaganda> Propagandas
+        public virtual ICollection<CenaComPropaganda> CenasComPropaganda
         {
             get
             {
-                if (Propagandas.Equals("null"))
+                if (CenasComPropaganda.Equals("null"))
                 {
                     return new List<Propaganda>();
                 }
                 else
                 {
-                    return Propagandas;
+                    return CenasComPropaganda;
                 }
             }
             set
             {
-                Propagandas = value;
+                CenasComPropaganda = value;
             }
         }
         #endregion

@@ -1,0 +1,7 @@
+Criação da classe CenaComPropaganda
+Na classe ProgramaDeTV substituiu-se a lista de Propaganda por lista de CenaComPropaganda
+Modificação do nome da classe Produto para ObjetoDePropaganda
+Criação do enumrador FormaDeExistenciaDeObjeto
+Criação do enumerador StatusControlador
+Criação da classe ParticipacaoDoTelespectador
+Retirada da coleção de PropagandaMarcada da classe TelespectadorParticipante

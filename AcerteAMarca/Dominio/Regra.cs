@@ -5,12 +5,16 @@ namespace Dominio
 {
     public class Regra
     {
-        public long Id { get; set; }
-
+        #region Properties
+        public long PremiacaoID { get; set; }
+        public long ID { get; set; }
         [Display(Name ="Descrições")]
         public string Descricao { get; set; }
-        
-        public long Premiacao_Id { get; set; }
+        #endregion
+
+        #region Navigatin Properties
+        public virtual Premiacao Premiacao { get; set; }
+        #endregion
 
     }
 }

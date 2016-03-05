@@ -42,16 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcerteAMarca.cs" />
+    <Compile Include="CenaComPropaganda.cs" />
     <Compile Include="CenaParaPropaganda.cs" />
+    <Compile Include="FormaDeExistenciaDeObjeto.cs" />
     <Compile Include="Marca.cs" />
+    <Compile Include="ParticipacaoDoTelespectador.cs" />
     <Compile Include="Premiacao.cs" />
-    <Compile Include="Produto.cs" />
+    <Compile Include="ObjetoDePropaganda.cs" />
     <Compile Include="ProgramaDeTV.cs" />
     <Compile Include="Propaganda.cs" />
     <Compile Include="PropagandaMarcada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regra.cs" />
-    <Compile Include="TelespactadorParticipante.cs" />
+    <Compile Include="StatusControlador.cs" />
+    <Compile Include="TelespectadorParticipante.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
