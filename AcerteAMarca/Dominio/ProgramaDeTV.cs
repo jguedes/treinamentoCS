@@ -25,7 +25,7 @@ namespace Dominio
             {
                 if (CenasComPropaganda.Equals("null"))
                 {
-                    return new List<Propaganda>();
+                    return new List<CenaComPropaganda>();
                 }
                 else
                 {

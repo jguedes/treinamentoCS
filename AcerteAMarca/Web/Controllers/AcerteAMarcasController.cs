@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Dominio;
-using Web.Models;
+using DAL;
 
 namespace Web.Controllers
 {

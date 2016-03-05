@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Web.DAL
+namespace DAL
 {
     public class AcerteAMarcaInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<AcerteAMarcaContext>
     {

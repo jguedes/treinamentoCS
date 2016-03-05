@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Dominio;
-using Web.Models;
+using DAL;
 
 namespace Web.Controllers
 {
@@ -42,11 +38,11 @@ namespace Web.Controllers
         }
 
         // GET: Regras/Create
-        public ActionResult Create(long? premiacaoId)
+        public ActionResult Create(long premiacaoId)
         {
             Regra regra = new Regra();
 
-            regra.Premiacao_Id = premiacaoId;
+            regra.PremiacaoID = premiacaoId;
 
             return View(regra);
         }
