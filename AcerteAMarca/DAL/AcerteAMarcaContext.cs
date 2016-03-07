@@ -18,7 +18,7 @@ namespace DAL
         public DbSet<ProgramaDeTV> ProgramaDeTV { get; set; }
         public DbSet<Premiacao> Premiacao { get; set; }
         public DbSet<AcerteAMarca> AcerteAMarca { get; set; }
-        public System.Data.Entity.DbSet<Dominio.Regra> Regras { get; set; }
+        public DbSet<Regra> Regras { get; set; }
 
         public AcerteAMarcaContext() : base("AcerteamarcaDB")
         {
@@ -27,7 +27,7 @@ namespace DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBiulder)
         {
-            //modelBiulder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBiulder.Conventions.Remove<PluralizingTableNameConvention>();
 
             //modelBiulder.Entity<Marca>()
             //    .HasMany<ObjetoDePropaganda>(m => m.ObjetosDePropaganda);

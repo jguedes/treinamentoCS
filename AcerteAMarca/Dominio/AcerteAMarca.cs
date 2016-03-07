@@ -13,6 +13,9 @@ namespace Dominio
 
         #region Properties
         public long ID { get; set; }
+        #endregion
+
+        #region Properties
         public virtual ICollection<ProgramaDeTV> ProgramasDeTV
         {
             get {
