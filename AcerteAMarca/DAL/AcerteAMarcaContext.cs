@@ -66,12 +66,12 @@ namespace DAL
                 .HasForeignKey(p=>p.CenaComPropagandaID)
                 .WillCascadeOnDelete(true);
             modelBiulder.Entity<ParticipacaoDoTelespectador>()
-                .HasOptional<Marca>(p=>p.MarcaEscolhida)
+                .HasRequired<Marca>(p=>p.MarcaEscolhida)
                 .WithMany(m=>m.ParticipacoesDeTelespectadoresQueEscolheramEstaMarca)
                 .HasForeignKey(p=>p.MarcaEscolhidaID)
                 .WillCascadeOnDelete(false);
             modelBiulder.Entity<ParticipacaoDoTelespectador>()
-                .HasOptional<Marca>(p => p.MarcaPublicada)
+                .HasRequired<Marca>(p => p.MarcaPublicada)
                 .WithMany(m => m.ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada)
                 .HasForeignKey(p => p.MarcaPublicadaID)
                 .WillCascadeOnDelete(false);
@@ -88,7 +88,7 @@ namespace DAL
                 .HasForeignKey(c => c.ObjetoDePropagandaID)
                 .WillCascadeOnDelete(false);
             modelBiulder.Entity<CenaComPropaganda>()
-                .HasOptional<Marca>(c => c.MarcaEfetivamentePublicada)
+                .HasRequired<Marca>(c => c.MarcaEfetivamentePublicada)
                 .WithMany(o => o.CenasComPropagandaComEstaMarca)
                 .HasForeignKey(c => c.MarcaEfetivamentePublicadaID)
                 .WillCascadeOnDelete(false);
