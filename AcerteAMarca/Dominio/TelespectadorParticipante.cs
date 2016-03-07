@@ -5,8 +5,8 @@ namespace Dominio
     public class TelespectadorParticipante
     {
         #region Properties
-        public long AcerteAMarcaID { get; set; }
         public long ID { get; set; }
+        public long AcerteAMarcaID { get; set; }
         public string IdentificadorDoTelespectador { get; set; }
         #endregion
 

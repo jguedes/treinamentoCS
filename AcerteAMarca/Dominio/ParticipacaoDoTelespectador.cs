@@ -3,9 +3,9 @@
     public class ParticipacaoDoTelespectador
     {
         #region Properties
+        public long ID { get; set; }
         public long TelespectadorParticipanteID { get; set; }
         public long CenaComPropagandaID { get; set; }
-        public long ID { get; set; }
         public long MarcaEscolhidaID { get; set; }
         public long MarcaPublicadaID { get; set; }
         #endregion

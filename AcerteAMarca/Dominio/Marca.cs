@@ -35,22 +35,76 @@ namespace Dominio
                 ObjetosDePropaganda = value;
             }
         }
-        public virtual ICollection<Marca> Marcas
+        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueEscolheramEstaMarca
         {
             get
             {
-                if (Marcas.Equals("null"))
+                if (ParticipacoesDeTelespectadoresQueEscolheramEstaMarca.Equals("null"))
                 {
-                    return new List<Marca>();
+                    return new List<ParticipacaoDoTelespectador>();
                 }
                 else
                 {
-                    return Marcas;
+                    return ParticipacoesDeTelespectadoresQueEscolheramEstaMarca;
                 }
             }
             set
             {
-                Marcas = value;
+                ParticipacoesDeTelespectadoresQueEscolheramEstaMarca = value;
+            }
+        }
+        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada
+        {
+            get
+            {
+                if (ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada.Equals("null"))
+                {
+                    return new List<ParticipacaoDoTelespectador>();
+                }
+                else
+                {
+                    return ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada;
+                }
+            }
+            set
+            {
+                ParticipacoesDeTelespectadoresQueEscolheramEstaMarca = value;
+            }
+        }
+        public virtual ICollection<CenaComPropaganda> CenasComPropagandaComEstaMarca
+        {
+            get
+            {
+                if (CenasComPropagandaComEstaMarca.Equals("null"))
+                {
+                    return new List<CenaComPropaganda>();
+                }
+                else
+                {
+                    return CenasComPropagandaComEstaMarca;
+                }
+            }
+            set
+            {
+                CenasComPropagandaComEstaMarca = value;
+            }
+        }
+        public virtual ICollection<CenaComPropaganda> ParticipacoesDestaMarcaComoOpcao
+        {
+            get
+            {
+                if (ParticipacoesDestaMarcaComoOpcao.Equals("null"))
+                {
+                    return new List<CenaComPropaganda>();
+                }
+                else
+                {
+                    return ParticipacoesDestaMarcaComoOpcao;
+                }
+            }
+            set
+            {
+                ParticipacoesDestaMarcaComoOpcao = value;
             }
         }
         #endregion

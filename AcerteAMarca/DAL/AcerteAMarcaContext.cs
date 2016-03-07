@@ -28,28 +28,87 @@ namespace DAL
         {
             modelBiulder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            //modelBiulder.Entity<Marca>()
-            //    .HasMany<ObjetoDePropaganda>(m => m.ObjetosDePropaganda);
-            //modelBiulder.Entity<ObjetoDePropaganda>()
-            //    .HasMany<Marca>(p => p.Marcas);
-            //modelBiulder.Entity<CenaParaPropaganda>()
-            //    .HasRequired<ObjetoDePropaganda>(r => r.Produto);
-            //modelBiulder.Entity<Propaganda>()
-            //    .HasMany<Marca>(p => p.OpcoesDeMarcasParaProdutoNaCena);
-            //modelBiulder.Entity<ProgramaDeTV>()
-            //    .HasMany<Propaganda>(p => p.CenasComPropaganda);
-            //modelBiulder.Entity<Premiacao>()
-            //    .HasMany<Regra>(p => p.Regras);
-            //modelBiulder.Entity<PropagandaMarcada>()
-            //    .HasRequired<Propaganda>(r => r.PropagandaVisualizada);
-            //modelBiulder.Entity<TelespectadorParticipante>()
-            //    .HasMany<PropagandaMarcada>(t => t.PropagandasMarcadas);
-            //modelBiulder.Entity<AcerteAMarca>()
-            //    .HasMany<ProgramaDeTV>(a => a.ProgramasDeTV);
-            //modelBiulder.Entity<AcerteAMarca>()
-            //    .HasMany<TelespectadorParticipante>(a => a.TelespectadoresParticipantes);
-            //modelBiulder.Entity<AcerteAMarca>()
-            //    .HasMany<Premiacao>(a => a.Premiacoes);
+            modelBiulder.Entity<Regra>()
+                .HasKey(r => r.ID);
+            modelBiulder.Entity<Regra>()
+                .HasRequired<Premiacao>(r => r.Premiacao)
+                .WithMany(p => p.Regras)
+                .HasForeignKey(r => r.PremiacaoID)
+                .WillCascadeOnDelete(true);
+            modelBiulder.Entity<Premiacao>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<Premiacao>()
+                .HasRequired<AcerteAMarca>(p=>p.AcerteAMarca)
+                .WithMany(a=>a.Premiacoes)
+                .HasForeignKey(p=>p.AcerteAMarcaID)
+                .WillCascadeOnDelete(true);
+            modelBiulder.Entity<Premiacao>()
+                .HasMany<TelespectadorParticipante>(p => p.Vencedores)
+                .WithMany(a => a.PremiacoesGanhadas)
+                .Map(t => t.ToTable("PreminacoesEGanhadores"));
+            modelBiulder.Entity<TelespectadorParticipante>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<TelespectadorParticipante>()
+                .HasRequired<AcerteAMarca>(t => t.AcerteAMarca)
+                .WithMany(a => a.TelespectadoresParticipantes)
+                .HasForeignKey(p => p.AcerteAMarcaID)
+                .WillCascadeOnDelete(true);
+            modelBiulder.Entity<TelespectadorParticipante>()
+                .HasMany<ParticipacaoDoTelespectador>(t => t.ParticipacoesDoTelespectador)
+                .WithRequired(p => p.TelespectadorParticipante)
+                .HasForeignKey(p => p.TelespectadorParticipanteID)
+                .WillCascadeOnDelete(false);
+            modelBiulder.Entity<ParticipacaoDoTelespectador>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<ParticipacaoDoTelespectador>()
+                .HasRequired<CenaComPropaganda>(p=>p.CenaComPropaganda)
+                .WithMany(c=>c.ParticipacoesDeTelespectador)
+                .HasForeignKey(p=>p.CenaComPropagandaID)
+                .WillCascadeOnDelete(true);
+            modelBiulder.Entity<ParticipacaoDoTelespectador>()
+                .HasOptional<Marca>(p=>p.MarcaEscolhida)
+                .WithMany(m=>m.ParticipacoesDeTelespectadoresQueEscolheramEstaMarca)
+                .HasForeignKey(p=>p.MarcaEscolhidaID)
+                .WillCascadeOnDelete(false);
+            modelBiulder.Entity<ParticipacaoDoTelespectador>()
+                .HasOptional<Marca>(p => p.MarcaPublicada)
+                .WithMany(m => m.ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada)
+                .HasForeignKey(p => p.MarcaPublicadaID)
+                .WillCascadeOnDelete(false);
+            modelBiulder.Entity<CenaComPropaganda>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<CenaComPropaganda>()
+                .HasRequired<ProgramaDeTV>(c=>c.ProgramaDeTv)
+                .WithMany(p=>p.CenasComPropaganda)
+                .HasForeignKey(c=>c.ProgramaDeTvID)
+                .WillCascadeOnDelete(true);
+            modelBiulder.Entity<CenaComPropaganda>()
+                .HasRequired<ObjetoDePropaganda>(c => c.ObjetoDePropaganda)
+                .WithMany(o => o.CenasComPropagandaDesteObjeto)
+                .HasForeignKey(c => c.ObjetoDePropagandaID)
+                .WillCascadeOnDelete(false);
+            modelBiulder.Entity<CenaComPropaganda>()
+                .HasOptional<Marca>(c => c.MarcaEfetivamentePublicada)
+                .WithMany(o => o.CenasComPropagandaComEstaMarca)
+                .HasForeignKey(c => c.MarcaEfetivamentePublicadaID)
+                .WillCascadeOnDelete(false);
+            modelBiulder.Entity<CenaComPropaganda>()
+                .HasMany<Marca>(c => c.OpcoesDeMarca)
+                .WithMany(m => m.ParticipacoesDestaMarcaComoOpcao)
+                .Map(t => t.ToTable("CenaComPropaganda_MarcaDeOpcao"));
+            modelBiulder.Entity<ObjetoDePropaganda>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<ObjetoDePropaganda>()
+                .HasMany<Marca>(o => o.Marcas)
+                .WithMany(m => m.ObjetosDePropaganda)
+                .Map(t => t.ToTable("Marca_ObjetoDePropaganda"));
+            modelBiulder.Entity<ProgramaDeTV>()
+                .HasKey(p => p.ID);
+            modelBiulder.Entity<ProgramaDeTV>()
+                .HasRequired<AcerteAMarca>(p => p.AcerteAMarca)
+                .WithMany(a => a.ProgramasDeTV)
+                .HasForeignKey(p => p.AcerteAMarcaID)
+                .WillCascadeOnDelete(false);
         }
 
     }
