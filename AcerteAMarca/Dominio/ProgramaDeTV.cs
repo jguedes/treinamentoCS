@@ -12,8 +12,8 @@ namespace Dominio
     public class ProgramaDeTV
     {
         #region Properties
-        public long acerteAMarcaID { get; set; }
-        public long Id { get; set; }
+        public long AcerteAMarcaID { get; set; }
+        public long ID { get; set; }
         public string Nome { get; set; }
         #endregion
 

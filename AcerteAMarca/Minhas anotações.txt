@@ -5,3 +5,5 @@ Criação do enumrador FormaDeExistenciaDeObjeto
 Criação do enumerador StatusControlador
 Criação da classe ParticipacaoDoTelespectador
 Retirada da coleção de PropagandaMarcada da classe TelespectadorParticipante
+07/03/2016
+Exclusão das classes CenaParaPropaganda, Propaganda, PropagandaMarcada

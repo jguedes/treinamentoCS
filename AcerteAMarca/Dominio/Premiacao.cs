@@ -9,11 +9,11 @@ namespace Dominio
         public long ID { get; set; }
         public string ObjetoPremio { get; set; }
         public int QuantVencendoresPermitido { get; set; }
-        public virtual ICollection<Regra> Regras { get; set; }
-        public virtual ICollection<TelespectadorParticipante> Vencedores { get; set; }
         #endregion
 
         #region Navigation Properties   
+        public virtual ICollection<Regra> Regras { get; set; }
+        public virtual ICollection<TelespectadorParticipante> Vencedores { get; set; }
         public virtual AcerteAMarca AcerteAMarca { get; set; }
         #endregion
     }

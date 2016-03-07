@@ -43,15 +43,12 @@
   <ItemGroup>
     <Compile Include="AcerteAMarca.cs" />
     <Compile Include="CenaComPropaganda.cs" />
-    <Compile Include="CenaParaPropaganda.cs" />
     <Compile Include="FormaDeExistenciaDeObjeto.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="ParticipacaoDoTelespectador.cs" />
     <Compile Include="Premiacao.cs" />
     <Compile Include="ObjetoDePropaganda.cs" />
     <Compile Include="ProgramaDeTV.cs" />
-    <Compile Include="Propaganda.cs" />
-    <Compile Include="PropagandaMarcada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regra.cs" />
     <Compile Include="StatusControlador.cs" />

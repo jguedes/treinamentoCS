@@ -9,15 +9,14 @@ namespace DAL
 {
     public class AcerteAMarcaContext : DbContext
     {
-        public DbSet<ObjetoDePropaganda> Produto { get; set; }
-        public DbSet<Marca> Marca { get; set; }
-        public DbSet<CenaParaPropaganda> Cena { get; set; }
-        public DbSet<TelespectadorParticipante> TelespactadorParticipante { get; set; }
-        public DbSet<PropagandaMarcada> PropagandaMarcada { get; set; }
-        public DbSet<Propaganda> Propaganda { get; set; }
-        public DbSet<ProgramaDeTV> ProgramaDeTV { get; set; }
-        public DbSet<Premiacao> Premiacao { get; set; }
         public DbSet<AcerteAMarca> AcerteAMarca { get; set; }
+        public DbSet<ProgramaDeTV> ProgramaDeTV { get; set; }
+        public DbSet<CenaComPropaganda> Cena { get; set; }
+        public DbSet<Marca> Marca { get; set; }
+        public DbSet<ObjetoDePropaganda> Produto { get; set; }
+        public DbSet<TelespectadorParticipante> TelespactadorParticipante { get; set; }
+        public DbSet<ParticipacaoDoTelespectador> ParticipacaoDoTelespectador { get; set; }
+        public DbSet<Premiacao> Premiacao { get; set; }
         public DbSet<Regra> Regras { get; set; }
 
         public AcerteAMarcaContext() : base("AcerteamarcaDB")
