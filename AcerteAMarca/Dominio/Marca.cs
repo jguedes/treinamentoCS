@@ -17,96 +17,12 @@ namespace Dominio
         #endregion
 
         #region Navigation Properties
-        public virtual ICollection<ObjetoDePropaganda> ObjetosDePropaganda
-        {
-            get
-            {
-                if (ObjetosDePropaganda.Equals("null"))
-                {
-                    return new List<ObjetoDePropaganda>();
-                }
-                else
-                {
-                    return ObjetosDePropaganda;
-                }
-            }
-            set
-            {
-                ObjetosDePropaganda = value;
-            }
-        }
-        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueEscolheramEstaMarca
-        {
-            get
-            {
-                if (ParticipacoesDeTelespectadoresQueEscolheramEstaMarca.Equals("null"))
-                {
-                    return new List<ParticipacaoDoTelespectador>();
-                }
-                else
-                {
-                    return ParticipacoesDeTelespectadoresQueEscolheramEstaMarca;
-                }
-            }
-            set
-            {
-                ParticipacoesDeTelespectadoresQueEscolheramEstaMarca = value;
-            }
-        }
-        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada
-        {
-            get
-            {
-                if (ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada.Equals("null"))
-                {
-                    return new List<ParticipacaoDoTelespectador>();
-                }
-                else
-                {
-                    return ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada;
-                }
-            }
-            set
-            {
-                ParticipacoesDeTelespectadoresQueEscolheramEstaMarca = value;
-            }
-        }
-        public virtual ICollection<CenaComPropaganda> CenasComPropagandaComEstaMarca
-        {
-            get
-            {
-                if (CenasComPropagandaComEstaMarca.Equals("null"))
-                {
-                    return new List<CenaComPropaganda>();
-                }
-                else
-                {
-                    return CenasComPropagandaComEstaMarca;
-                }
-            }
-            set
-            {
-                CenasComPropagandaComEstaMarca = value;
-            }
-        }
-        public virtual ICollection<CenaComPropaganda> ParticipacoesDestaMarcaComoOpcao
-        {
-            get
-            {
-                if (ParticipacoesDestaMarcaComoOpcao.Equals("null"))
-                {
-                    return new List<CenaComPropaganda>();
-                }
-                else
-                {
-                    return ParticipacoesDestaMarcaComoOpcao;
-                }
-            }
-            set
-            {
-                ParticipacoesDestaMarcaComoOpcao = value;
-            }
-        }
+        //public virtual ICollection<ObjetoDePropaganda> ObjetosDePropaganda { get; set; }
+        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueEscolheramEstaMarca { get; set; }
+        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectadoresQueMarcaramEstaMarcaComoPublicada { get; set; }
+        public virtual ICollection<CenaComPropaganda> CenasComPropagandaEfetivamenteComEstaMarca { get; set; }
+        public virtual ICollection<CenaComPropaganda> ParticipacoesDestaMarcaComoOpcao { get; set; }
+        public virtual ICollection<ObjetoDePropaganda> ObjetosDePropagandaVendidosPorEstaMarca { get; set; }
         #endregion
     }
 }

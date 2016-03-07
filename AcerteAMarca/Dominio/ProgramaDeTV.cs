@@ -12,31 +12,15 @@ namespace Dominio
     public class ProgramaDeTV
     {
         #region Properties
-        public long AcerteAMarcaID { get; set; }
+        //public long AcerteAMarcaID { get; set; }
         public long ID { get; set; }
         public string Nome { get; set; }
         #endregion
 
         #region Navigation properties
-        public virtual AcerteAMarca AcerteAMarca { get; set; }
-        public virtual ICollection<CenaComPropaganda> CenasComPropaganda
-        {
-            get
-            {
-                if (CenasComPropaganda.Equals("null"))
-                {
-                    return new List<CenaComPropaganda>();
-                }
-                else
-                {
-                    return CenasComPropaganda;
-                }
-            }
-            set
-            {
-                CenasComPropaganda = value;
-            }
-        }
+        //public virtual AcerteAMarca AcerteAMarca { get; set; }
+        public virtual ICollection<CenaComPropaganda> CenasComPropaganda { get; set; }
+        public virtual ICollection<AcerteAMarca> ProjetosAcerteAMarcaEmQueEsteProgramaDeTVFazParte { get; set; }
         #endregion
     }
 }

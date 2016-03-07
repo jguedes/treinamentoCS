@@ -11,13 +11,13 @@ namespace Dominio
         #region Properties
         public long ID { get; set; }
         public long ProgramaDeTvID { get; set; }
+        public long ObjetoDePropagandaID { get; set; }
+        public long? MarcaEfetivamentePublicadaID { get; set; }
         public string DescricaoDaCena { get; set; }
         public StatusControlador StatusControlador { get; set; }
         public DateTime? DataAnunciar { get; set; }
         public DateTime? DataAcontecer { get; set; }
         public DateTime? DataFinalizar { get; set; }
-        public long ObjetoDePropagandaID { get; set; }
-        public long MarcaEfetivamentePublicadaID { get; set; }
         #endregion
 
         #region Navigation Properties
@@ -25,7 +25,7 @@ namespace Dominio
         public virtual ObjetoDePropaganda ObjetoDePropaganda { get; set; }
         public virtual Marca MarcaEfetivamentePublicada { get; set; }
         public virtual ICollection<Marca> OpcoesDeMarca { get; set; }
-        public ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectador { get; set; }
+        public virtual ICollection<ParticipacaoDoTelespectador> ParticipacoesDeTelespectador { get; set; }
         #endregion
     }
 }
